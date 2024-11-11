@@ -6,7 +6,7 @@ import { categoryRouter } from "./routers/category-router"
 import { paymentRouter } from "./routers/payment-router"
 import { projectRouter } from "./routers/project-router"
 
-const app = new Hono().basePath("/api").use(cors())
+const app = new Hono().basePath("/api") //.use(cors())
 
 /**
  * This is the primary router for your server.
