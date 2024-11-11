@@ -23,7 +23,7 @@ interface SidebarCategory {
 const SIDEBAR_ITEMS: SidebarCategory[] = [
   {
     category: "Overview",
-    items: [{ href: "/", icon: Home, text: "Home" }],
+    items: [{ href: "/dashboard", icon: Home, text: "Home" }],
   },
   {
     category: "Account",
@@ -46,15 +46,18 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
   return (
     <div className="space-y-4 md:space-y-6 relative z-20 flex flex-col h-full">
       {/* logo */}
-      <p className="hidden sm:hidden text-lg/7 font-semibold text-brand-900">
-        Ping<span className="text-brand-700">Panda</span>
-      </p>
+      <Link href="/">
+        <p className="hidden md:block text-lg/7 font-semibold text-brand-900">
+          Ping<span className="text-brand-700">Panda</span>
+        </p>
+      </Link>
 
       {/* navigation items */}
       <div className="flex-grow">
+      
         <ul>
           {SIDEBAR_ITEMS.map(({ category, items }) => (
-            <li key={category} className="mb-4 md:mb-8">
+            <li key={category} className=" mb-4 md:mb-8">
               <p className="text-xs font-medium leading-6 text-zinc-500">
                 {category}
               </p>
@@ -108,9 +111,11 @@ const Layout = ({ children }: PropsWithChildren) => {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* mobile header */}
         <div className="md:hidden flex items-center justify-between p-4 border-b border-gray-200">
-          <p className="text-lg/7 font-semibold text-brand-900">
-            Ping<span className="text-brand-700">Panda</span>
-          </p>
+          <Link href="/">
+            <p className="text-lg/7 font-semibold text-brand-900">
+              Ping<span className="text-brand-700">Panda</span>
+            </p>
+          </Link>
           <button
             onClick={() => setIsDrawerOpen(true)}
             className="text-gray-500 hover:text-gray-600"
@@ -133,19 +138,21 @@ const Layout = ({ children }: PropsWithChildren) => {
           showModal={isDrawerOpen}
           setShowModal={setIsDrawerOpen}
         >
-          <div className="flex justify-between items-center mb-4">
-            <p className="text-lg/7 font-semibold text-brand-900">
-              Ping<span className="text-brand-700">Panda</span>
-            </p>
+          <div className="flex justify-between items-center">
+            <Link href="/">
+              <p className="text-lg/7 font-semibold text-brand-900">
+                Ping<span className="text-brand-700">Panda</span>
+              </p>
+            </Link>
             <button
               aria-label="Close modal"
               onClick={() => setIsDrawerOpen(false)}
             >
-              {/*<X className="size-6" />*/}
+              <X className="size-6 sm:hidden" />
             </button>
           </div>
 
-          <Sidebar />
+          <Sidebar onClose={() => setIsDrawerOpen(false)}/>
         </Modal>
       </div>
     </div>
