@@ -57,7 +57,7 @@ export const EmptyCategoryState = ({categoryName,}: {categoryName: string}) => {
        
       </p>
       <p className="text-sm/6 text-gray-600 mb-8 max-w-md text-center text-pretty">
-        You can use an HTTP client like Postman or Bruno. If you don't know how to use it, you'll have to create a POST request to the URL below (the URL inside the fetch). In the body -> raw -> JSON paste the body as in the example, and lastly, in the header, add a new one with the name Authorization and in the value paste your API key (find it in your settings -> API Key) with the format as in the example (Bearer YOUR_API_KEY).
+        You can use an HTTP client like Postman or Bruno. If you don't know how to use it, you'll have to create a POST request to the URL below (the URL inside the fetch). In the body &rarr; raw &rarr; JSON paste the body as in the example, and lastly, in the header, add a new one with the name Authorization and in the value paste your API key (find it in your settings &rarr; API Key) with the format as in the example (Bearer YOUR_API_KEY).
         <br />
         Finally, for this to work properly and receive your discord notifications, you'll have to set your DiscordId in the Account Settings.
       </p>
